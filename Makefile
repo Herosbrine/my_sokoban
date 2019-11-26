@@ -17,7 +17,7 @@ SRC = src/error_management.c  \
 	  src/my_putstr.c  \
 	  src/my_sokoban.c  \
 	  src/my_strcmp.c  \
-	  src/my_strlen.c
+	  src/my_strlen.c  \
 
 OBJ	=	$(SRC:.c=.o)
 
