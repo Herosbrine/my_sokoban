@@ -18,6 +18,8 @@ SRC = src/error_management.c  \
 	  src/my_sokoban.c  \
 	  src/my_strcmp.c  \
 	  src/my_strlen.c  \
+	  src/my_getnbr.c	\
+	  src/read_map.c
 
 OBJ	=	$(SRC:.c=.o)
 
