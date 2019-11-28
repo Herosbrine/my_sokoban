@@ -13,3 +13,4 @@ int my_strlen(char const *str);
 char*read_map(char *filepath);
 int get_size(char *filepath);
 int	my_getnbr(char *str);
+int game_loop(char *map);
