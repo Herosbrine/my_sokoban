@@ -7,55 +7,77 @@
 
 #include <ncurses.h>
 #include <stdlib.h>
-/*
-char my_sokoban(char *map, char **argv)
+
+void Player_mvup(int x, int y)
 {
-    int i = 0;
+    write(1, ' ', 1);
+    y--;
+    refresh();
 }
-*/
-int move_p(int *x, int *y, char *p)
+
+void Player_mvdown(int x, int y)
 {
-    while (true) {
+    write(1, ' ', 1);
+    y++;
+    refresh();
+}
+
+void Player_mvleft(int x, int y)
+{
+    write(1, ' ', 1);
+    x--;
+    refresh();
+}
+
+void Player_right(int x, int y)
+{
+    write(1, ' ', 1);
+    x++;
+    refresh();
+}
+
+int move_p(int x, int y, char *buffer)
+{
+    while(1) {
         noecho();
         curs_set(FALSE);
-        mvprintw(*y, *x, "%s", p);
-        //refresh();
-        switch (getch())
-        {
-        case 'd':
-            x++;
-        break;
-        case 'q':
-            x--;
-        break;
+    switch(getch()) {
         case 'z':
-            y--;
+            Player_mvup(x, y);
         break;
         case 's':
-            y++;
-        break;
-    default:
-        break;
-        }
-        clear();
+            Player_mvdown(x, y);
+            break;
+        case 'q':
+            Player_mvleft(x, y);
+            break;
+        case 'd':
+            Player_right(x, y);
+            break;
     }
-    return (0);
+    }
 }
-char find_p(int x, int y, char *str)
+
+int count_nbr_y(int y, char *buffer)
 {
-    char *p = 0;
-    p = malloc(sizeof(*p));
-    while (str[x] != '\0') {
-        if (str[x] == '\n')
+    int x = 0;
+
+    while (buffer[x] != 'P') {
+        if (buffer[x] == '\n')
             y = y + 1;
-        if (str[x] == 'P') {
-            p[0] = str[x];
-            move_p(&x, &y, p);
-        }
         x++;
     }
-    return (0);
+    return (y);
 }
+
+int find_p(int x, char *buffer)
+{
+    while (buffer[x] != 'P') {
+        x = x + 1;
+    }
+    return (x);
+}
+
 int game_loop(char *map)
 {
     int x = 0;
@@ -64,10 +86,11 @@ int game_loop(char *map)
     initscr();
     noecho();
     curs_set(FALSE);
+    x = find_p(x, map);
+    y = count_nbr_y(y, map);
     while (1) {
         mvprintw(0, 0, "%s", map);
         refresh();
-        find_p(x, y, map);
-        //move_p(&x, &y, map);
+        move_p(x, y, map);
     }
 }
