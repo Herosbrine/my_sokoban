@@ -14,3 +14,5 @@ char*read_map(char *filepath);
 int get_size(char *filepath);
 int	my_getnbr(char *str);
 int game_loop(char *map);
+void new_pos2(int *x, int *y, char ch, char *map);
+void new_pos(int *x, int *y, char ch, char *map);

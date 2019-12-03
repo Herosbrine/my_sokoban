@@ -7,56 +7,7 @@
 
 #include <ncurses.h>
 #include <stdlib.h>
-
-void Player_mvup(int x, int y)
-{
-    write(1, ' ', 1);
-    y--;
-    refresh();
-}
-
-void Player_mvdown(int x, int y)
-{
-    write(1, ' ', 1);
-    y++;
-    refresh();
-}
-
-void Player_mvleft(int x, int y)
-{
-    write(1, ' ', 1);
-    x--;
-    refresh();
-}
-
-void Player_right(int x, int y)
-{
-    write(1, ' ', 1);
-    x++;
-    refresh();
-}
-
-int move_p(int x, int y, char *buffer)
-{
-    while(1) {
-        noecho();
-        curs_set(FALSE);
-    switch(getch()) {
-        case 'z':
-            Player_mvup(x, y);
-        break;
-        case 's':
-            Player_mvdown(x, y);
-            break;
-        case 'q':
-            Player_mvleft(x, y);
-            break;
-        case 'd':
-            Player_right(x, y);
-            break;
-    }
-    }
-}
+#include "my.h"
 
 int count_nbr_y(int y, char *buffer)
 {
@@ -67,13 +18,18 @@ int count_nbr_y(int y, char *buffer)
             y = y + 1;
         x++;
     }
+    buffer[x] = ' ';
     return (y);
 }
 
 int find_p(int x, char *buffer)
 {
-    while (buffer[x] != 'P') {
+    int x2 = 0;
+    while (buffer[x2] != 'P') {
+        if (buffer[x2] == '\n')
+            x = -1;
         x = x + 1;
+        x2++;
     }
     return (x);
 }
@@ -86,11 +42,13 @@ int game_loop(char *map)
     initscr();
     noecho();
     curs_set(FALSE);
+    keypad(stdscr, TRUE);
     x = find_p(x, map);
     y = count_nbr_y(y, map);
     while (1) {
         mvprintw(0, 0, "%s", map);
+        mvprintw(y, x, "P");
         refresh();
-        move_p(x, y, map);
+        new_pos(&x, &y,getch(), map);
     }
 }
