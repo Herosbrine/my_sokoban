@@ -26,7 +26,5 @@ int main(int ac, char **argv)
     if (error_management(map, argv) == 84)
         return (84);
     game_loop(map);
-
     return (0);
-
 }

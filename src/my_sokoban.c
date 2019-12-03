@@ -9,31 +9,6 @@
 #include <stdlib.h>
 #include "my.h"
 
-int count_nbr_y(int y, char *buffer)
-{
-    int x = 0;
-
-    while (buffer[x] != 'P') {
-        if (buffer[x] == '\n')
-            y = y + 1;
-        x++;
-    }
-    buffer[x] = ' ';
-    return (y);
-}
-
-int find_p(int x, char *buffer)
-{
-    int x2 = 0;
-    while (buffer[x2] != 'P') {
-        if (buffer[x2] == '\n')
-            x = -1;
-        x = x + 1;
-        x2++;
-    }
-    return (x);
-}
-
 int game_loop(char *map)
 {
     int x = 0;
@@ -49,6 +24,6 @@ int game_loop(char *map)
         mvprintw(0, 0, "%s", map);
         mvprintw(y, x, "P");
         refresh();
-        new_pos(&x, &y,getch(), map);
+        pos_up(&x, &y, getch(), map);
     }
 }

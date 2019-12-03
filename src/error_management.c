@@ -21,8 +21,8 @@ char error_management(char *map, char **argv)
         " and '0' for storage locations.\n");
     }
     while (map[i] != '\0') {
-        if (map[i] != '#' && map[i] != 'P' && map[i] != '\n' \
-        && map[i] != 'O' && map[i] != 'X' && map[i] != ' ')
+        if (map[i] != '#' && map[i] != 'P' && map[i] != '\n' &&
+            map[i] != 'O' && map[i] != 'X' && map[i] != ' ')
             return (84);
         i++;
     }

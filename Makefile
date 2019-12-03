@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-CC	=	gcc -g3 -lncurses
+CC	=	gcc -lncurses
 
 RM	=	 rm -rf
 
@@ -22,7 +22,14 @@ SRC = src/error_management.c  \
 	  src/read_map.c	\
 	  src/get_size.c	\
 	  src/main.c \
-	  src/new_pos.c	\
+	  src/find_p.c	\
+	  src/count_nbr_y.c	\
+	  src/pos_down.c	\
+	  src/pos_up.c	\
+	  src/pos_left.c	\
+	  src/pos_right.c	\
+	  src/get_lenght_n.c	\
+
 
 OBJ	=	$(SRC:.c=.o)
 
