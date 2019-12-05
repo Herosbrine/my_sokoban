@@ -13,7 +13,7 @@ int count_p(char *map)
     int i = 0;
     int cp = 0;
 
-    while (map[i] != '\0'){
+    while (map[i] != '\0') {
         if (map[i] == 'P')
             cp++;
         i++;
@@ -27,8 +27,8 @@ int *position_p(int cp, char *map)
     int i = 0;
     int *p_position = malloc(sizeof(int) * cp);
 
-    while (map[i] != '\0'){
-        if (map[i] == 'P'){
+    while (map[i] != '\0') {
+        if (map[i] == 'P') {
             p_position[k] = i;
             k++;
         }

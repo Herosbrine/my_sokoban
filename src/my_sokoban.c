@@ -11,18 +11,18 @@
 
 void print_map(char *map, int y, int x, int *ch)
 {
-        mvprintw(0, 0, "%s", map);
-        mvprintw(y, x, "P");
-        refresh();
-        *ch = getch();
+    mvprintw(0, 0, "%s", map);
+    mvprintw(y, x, "P");
+    refresh();
+    *ch = getch();
 }
 
 void checker(int a, int *o_position, char *map)
 {
     check_o(a, o_position, map);
     if (check_end(a, o_position, map) == 1) {
-            endwin();
-            exit (0);
+        endwin();
+        exit (0);
     }
 }
 

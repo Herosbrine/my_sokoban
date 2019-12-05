@@ -5,7 +5,7 @@
 ** my.h
 */
 
-char error_management(char *map, char **argv);
+char error_management(char *map);
 int my_putstr(char const *str);
 void my_putchar(char c);
 int my_strcmp(char *str1, char *str2);
@@ -32,3 +32,4 @@ int count_box(char *map);
 int *position_box(int r, char *map);
 void put_box_again(int r, int *position_p, char *map);
 void erase_pre_box(char *map);
+int help_option(char **argv);

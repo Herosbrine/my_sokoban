@@ -19,17 +19,17 @@ int main(int ac, char **argv)
     int x = 0;
     char *map = NULL;
 
+    if (ac < 2 || ac > 2)
+        return (84);
+    help_option(argv);
     initscr();
     noecho();
     curs_set(FALSE);
     keypad(stdscr, TRUE);
-
-    if (ac != 2)
-        return 84;
     map = read_map(argv[1]);
     if (map == NULL)
         return (84);
-    if (error_management(map, argv) == 84)
+    if (error_management(map) == 84)
         return (84);
     game_loop(x, map);
     return (0);

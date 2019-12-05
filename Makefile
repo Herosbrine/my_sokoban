@@ -34,6 +34,7 @@ SRC = src/error_management.c  \
 	  src/put_p_again.c		\
 	  src/put_box_again.c	\
 	  src/erase_pre_box.c	\
+	  src/help_option.c	\
 
 
 

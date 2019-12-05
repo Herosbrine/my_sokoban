@@ -14,7 +14,7 @@ int count_box(char *map)
     int i = 0;
     int r = 0;
 
-    while (map[i] != '\0'){
+    while (map[i] != '\0') {
         if (map[i] == 'X')
             r++;
         i++;
@@ -28,8 +28,8 @@ int *position_box(int r, char *map)
     int i = 0;
     int *p_position = malloc(sizeof(int) * r);
 
-    while (map[i] != '\0'){
-        if (map[i] == 'X'){
+    while (map[i] != '\0') {
+        if (map[i] == 'X') {
             p_position[k] = i;
             k++;
         }

@@ -19,7 +19,7 @@ int check_end(int a, int *position_o, char *map)
             end++;
         i++;
         if (end == a)
-            return(1);
+            return (1);
     }
-    return(0);
+    return (0);
 }
