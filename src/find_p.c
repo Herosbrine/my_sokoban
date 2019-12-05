@@ -9,9 +9,11 @@
 #include <stdlib.h>
 #include "my.h"
 
-int find_p(int x, char *buffer)
+int find_p(char *buffer)
 {
     int x2 = 0;
+    int x = 0;
+
     while (buffer[x2] != 'P') {
         if (buffer[x2] == '\n')
             x = -1;

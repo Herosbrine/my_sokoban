@@ -16,7 +16,13 @@
 
 int main(int ac, char **argv)
 {
+    int x = 0;
     char *map = NULL;
+
+    initscr();
+    noecho();
+    curs_set(FALSE);
+    keypad(stdscr, TRUE);
 
     if (ac != 2)
         return 84;
@@ -25,6 +31,6 @@ int main(int ac, char **argv)
         return (84);
     if (error_management(map, argv) == 84)
         return (84);
-    game_loop(map);
+    game_loop(x, map);
     return (0);
 }

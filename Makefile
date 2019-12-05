@@ -29,6 +29,12 @@ SRC = src/error_management.c  \
 	  src/pos_left.c	\
 	  src/pos_right.c	\
 	  src/get_lenght_n.c	\
+	  src/count_o.c			\
+	  src/check_end.c		\
+	  src/put_p_again.c		\
+	  src/put_box_again.c	\
+	  src/erase_pre_box.c	\
+
 
 
 OBJ	=	$(SRC:.c=.o)
