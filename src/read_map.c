@@ -20,6 +20,8 @@ char *read_map(char *filepath)
     char *buffer = NULL;
     int fd = open(filepath, O_RDONLY);
 
+    if (fd == -1)
+        exit (84);
     buffer = malloc(sizeof(char) * (size + 1));
     read(fd, buffer, size);
     close(fd);
