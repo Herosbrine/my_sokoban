@@ -13,7 +13,8 @@ char error_management(char *map)
 
     while (map[i] != '\0') {
         if (map[i] != '#' && map[i] != 'P' && map[i] != '\n' &&
-            map[i] != 'O' && map[i] != 'X' && map[i] != ' ')
+            map[i] != 'O' && map[i] != 'X' && map[i] != ' ' && map[i] != 'B' &&
+            map[i] != '.')
             return (84);
         i++;
     }

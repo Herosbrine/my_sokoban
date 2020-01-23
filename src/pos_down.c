@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "my.h"
 
-void pos_down(int *x, int *y, char ch, char *map)
+void pos_down(int *x, int *y, int *delay, char ch, char *map)
 {
     int size = get_lenght_n(map);
 
@@ -17,6 +17,14 @@ void pos_down(int *x, int *y, char ch, char *map)
         (*y)++;
         if (map[*x + *y * size] == '#')
             (*y)--;
+        if (map[*x + *y * size] == 'B') {
+            *delay = *delay - 50;
+            map[*x + *y * size] = ' ';
+        }
+        if (map[*x + *y * size] == '.') {
+            *delay = *delay + 35;
+            map[*x + *y * size] = ' ';
+        }
         if (map[*x + *y * size] == 'X' && map[*x + (*y+1) * size] != '#' &&
             map[*x + (*y+1) * size] != 'X') {
             map[*x + *y * size] = ' ';
@@ -26,5 +34,5 @@ void pos_down(int *x, int *y, char ch, char *map)
             (map[*x + (*y+1) * size] == 'X' && map[*x + *y * size] == 'X'))
             (*y)--;
     }
-    pos_left(x, y, ch, map);
+    pos_left(x, y, delay, ch, map);
 }
